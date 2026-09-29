@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LegalEase - Simplify Legal Documents</title>
+    <style>
+        body { font-family: Arial, sans-serif; background: #f4f6f9; margin: 0; padding: 0; }
+        header { background: #1a2a4a; color: white; padding: 20px; text-align: center; }
+        .container { max-width: 900px; margin: 30px auto; background: white; padding: 25px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+        textarea { width: 100%; height: 200px; padding: 12px; border-radius: 8px; border: 1px solid #ccc; font-size: 16px; }
+        button { background: #2d6cdf; color: white; border: none; padding: 12px 25px; border-radius: 8px; font-size: 16px; cursor: pointer; margin-top: 15px; }
+        button:hover { background: #1c4fb0; }
+        #output { margin-top: 25px; background: #eef3ff; padding: 15px; border-radius: 8px; min-height: 100px; white-space: pre-wrap; }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>LegalEase</h1>
+        <p>AI Powered Legal Document Simplifier</p>
+    </header>
+    <div class="container">
+        <h3>Paste your legal text here:</h3>
+        <textarea id="legalInput" placeholder="Paste your Terms & Conditions, Agreement, etc..."></textarea>
+        <br>
+        <button onclick="simplifyText()">Simplify with LegalEase</button>
+        <div id="output">Simplified version will appear here...</div>
+    </div>
+
+<script>
+function simplifyText() {
+    const input = document.getElementById('legalInput').value;
+    const output = document.getElementById('output');
+    if(!input.trim()) {
+        output.innerText = "Please paste some legal text first.";
+        return;
+    }
+    output.innerText = "Simplifying...\n\n";
+    setTimeout(() => {
+        output.innerText = "✅ Simplified Version:\n\n" + 
+        "This document says:\n1. You agree to use this service fairly.\n2. Your data will be kept safe.\n3. You can cancel anytime.\n\n(In full project, this will be connected to Gemini / OpenAI API to give real simplification)";
+    }, 1000);
+}
+</script>
+</body>
+</html>
